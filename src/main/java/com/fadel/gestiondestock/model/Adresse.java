@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode()
 @Embeddable
-public class Adresse {
+public class Adresse implements Serializable {
     @Column(name = "adresse")
     private String adresse;
     @Column(name = "ville")

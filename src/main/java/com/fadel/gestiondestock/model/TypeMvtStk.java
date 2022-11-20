@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode()
 @Embeddable
 public class TypeMvtStk {
     @Column(name = "typemv")
