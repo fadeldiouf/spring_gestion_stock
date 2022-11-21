@@ -11,9 +11,11 @@ import com.fadel.gestiondestock.validator.ArticleValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -51,16 +53,32 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ArticleDto findByCodeArticle(String codeArticle) {
-        return null;
+        if (!StringUtils.hasLength(codeArticle)){
+            log.error("article CODE is null");
+            return null;
+        }
+        Optional<Article>article= articleRepository.findArticleByCodeArticle(codeArticle);
+        ArticleDto articleDto= ArticleDto.fromEntity(article.get());
+        return Optional.of(articleDto).orElseThrow(()->new EntityNotFoundException(
+                "aucun article avec le code="+ codeArticle +"n'a été trouver dans la BDD",
+                ErrorCodes.ARTICLE_NOT_FOUND));
     }
 
     @Override
     public List<ArticleDto> findAll() {
-        return null;
+        return articleRepository.findAll().stream()
+                .map(ArticleDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public void delete(Integer id) {
+        if (id==null) {
+            log.error("article ID is null");
+            return;
+        }
+        articleRepository.deleteById(id);
 
     }
+
 }
