@@ -27,7 +27,7 @@ public class ClientValidator {
             errors.add("veuiller renseigner le mail du client");
         }
         if (clientDto.getAdresse()== null){
-            errors.add("veuiller renseigner l'adresse de l'utilisateur");
+            errors.add("veuiller renseigner l'adresse du client");
         }else {
 
             if (!StringUtils.hasLength(clientDto.getAdresse().getAdresse())){
