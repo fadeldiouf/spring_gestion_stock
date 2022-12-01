@@ -17,6 +17,7 @@ public class ArticleDto {
     private BigDecimal prixUnitaire;
     private  String photo;
     private CategorieDto categorie;
+    private Integer idEntreprise;
 
     public static ArticleDto fromEntity(Article article){
         if (article==null){
@@ -28,6 +29,8 @@ public class ArticleDto {
                 .designation(article.getDesignation())
                 .prixUnitaire(article.getPrixUnitaire())
                 .photo(article.getPhoto())
+                .categorie(CategorieDto.fromEntity(article.getCategorie()))
+                .idEntreprise(article.getIdEntreprise())
                 .build();
 
     }
@@ -41,6 +44,7 @@ public class ArticleDto {
         article.setDesignation(articleDto.getDesignation());
         article.setPrixUnitaire(articleDto.getPrixUnitaire());
         article.setPhoto(articleDto.getPhoto());
+        article.setIdEntreprise(articleDto.getIdEntreprise());
         return article;
 
     }

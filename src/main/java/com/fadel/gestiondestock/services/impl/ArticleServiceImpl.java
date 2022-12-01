@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
         List<String> errors= ArticleValidator.validate(articleDto);
         if (!errors.isEmpty()){
             log.error("Article is not valid {}",articleDto);
-            throw new InvalidEntityException("l'article n'est pas valide ", ErrorCodes.ARTICLE_NOT_VALID);
+            throw new InvalidEntityException("l'article n'est pas valide ", ErrorCodes.ARTICLE_NOT_VALID,errors);
         }
         return ArticleDto.fromEntity(
                 articleRepository.save(

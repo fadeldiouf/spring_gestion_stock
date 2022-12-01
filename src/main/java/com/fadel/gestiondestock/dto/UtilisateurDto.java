@@ -36,6 +36,7 @@ public class UtilisateurDto {
                 .email(utilisateur.getEmail())
                 .motDePasse(utilisateur.getMotDePasse())
                 .photo(utilisateur.getPhoto())
+                .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
                 .build();
     }
     public static Utilisateur toEntity(UtilisateurDto utilisateurDto){

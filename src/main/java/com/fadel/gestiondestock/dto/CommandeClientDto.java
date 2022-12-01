@@ -1,7 +1,6 @@
 package com.fadel.gestiondestock.dto;
 
 import com.fadel.gestiondestock.model.CommandeClient;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,9 +14,9 @@ public class CommandeClientDto {
     private String code;
 
     private Instant date;
+    private Integer idEntreprise;
 
     private ClientDto client;
-    @JsonIgnore
     private List<LigneCommandeClientDto> ligneCommandeClients;
 
 
@@ -29,6 +28,8 @@ public class CommandeClientDto {
                 .id(commandeClient.getId())
                 .code(commandeClient.getCode())
                 .date(commandeClient.getDate())
+                .idEntreprise(commandeClient.getIdEntreprise())
+                .client(ClientDto.fromEntity(commandeClient.getClient()))
                 .build();
 
     }
@@ -40,6 +41,7 @@ public class CommandeClientDto {
         commandeClient.setId(commandeClientDto.getId());
         commandeClient.setCode(commandeClientDto.getCode());
         commandeClient.setDate(commandeClientDto.getDate());
+        commandeClient.setIdEntreprise(commandeClientDto.getIdEntreprise());
         return commandeClient;
     }
 }

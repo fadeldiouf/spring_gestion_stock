@@ -12,18 +12,22 @@ import java.math.BigDecimal;
 public class LigneVenteDto {
     private Integer id;
     private VenteDto vente;
+    private Integer idEntreprise;
 
     private BigDecimal quantite;
 
     private BigDecimal prixunitaire;
+    private ArticleDto article;
     public static LigneVenteDto fromEntity(LigneVente ligneVente){
         if (ligneVente==null){
             return null;
         }
         return LigneVenteDto.builder()
                 .id(ligneVente.getId())
+                .article(ArticleDto.fromEntity(ligneVente.getArticle()))
                 .quantite(ligneVente.getQuantite())
                 .prixunitaire(ligneVente.getPrixunitaire())
+                .idEntreprise(ligneVente.getIdEntreprise())
                 .build();
     }
     public static LigneVente toEntity(LigneVenteDto ligneVenteDto){
@@ -34,6 +38,7 @@ public class LigneVenteDto {
         ligneVente.setId(ligneVenteDto.getId());
         ligneVente.setQuantite(ligneVenteDto.getQuantite());
         ligneVente.setPrixunitaire(ligneVenteDto.getPrixunitaire());
+        ligneVente.setIdEntreprise(ligneVenteDto.getIdEntreprise());
         return ligneVente;
     }
 }

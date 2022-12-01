@@ -22,7 +22,7 @@ public class AbstractEntity implements Serializable {
     @JsonIgnore
     private Instant dateCreation;
     @LastModifiedDate
-    @Column(name = "dateModification",nullable = false)
+    @Column(name = "dateModification",nullable = false,updatable = false)
     @JsonIgnore
     private Instant dateModification;
 

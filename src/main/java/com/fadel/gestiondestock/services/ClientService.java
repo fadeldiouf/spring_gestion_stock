@@ -13,4 +13,6 @@ public interface ClientService {
 
     void delete(Integer id);
 
+    interface CommandeFournisseurService {
+    }
 }
