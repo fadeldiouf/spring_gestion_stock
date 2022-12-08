@@ -44,6 +44,7 @@ public class ArticleDto {
         article.setDesignation(articleDto.getDesignation());
         article.setPrixUnitaire(articleDto.getPrixUnitaire());
         article.setPhoto(articleDto.getPhoto());
+        article.setCategorie(CategorieDto.toEntity(articleDto.getCategorie()));
         article.setIdEntreprise(articleDto.getIdEntreprise());
         return article;
 

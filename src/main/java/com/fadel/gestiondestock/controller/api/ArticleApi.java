@@ -14,7 +14,7 @@ import static com.fadel.gestiondestock.utils.Contants.App_Root;
 
 @Api(App_Root + "/article")
 public interface ArticleApi {
-    @PostMapping(value =App_Root + "/article/create",consumes = MediaType.APPLICATION_JSON_VALUE,produces =MediaType.APPLICATION_JSON_VALUE )
+    @PostMapping(value =App_Root + "/articles/create",consumes = MediaType.APPLICATION_JSON_VALUE,produces =MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "Enregister un article",notes = "cette methode permet d'enregister ou modifier un article", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "Article cree/modifier"),
@@ -22,7 +22,7 @@ public interface ArticleApi {
     })
     ArticleDto save(@RequestBody ArticleDto articleDto);
 
-    @GetMapping(value =App_Root + "/article/{idArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
+    @GetMapping(value =App_Root + "/articles/{idArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "Rechercher un article par ID ",notes = "cette methode permet de rechercher un article par son ID ", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "L'article a été trouvée dans la BDD "),
@@ -30,7 +30,7 @@ public interface ArticleApi {
     })
     ArticleDto findById(@PathVariable("idArticle") Integer id);
 
-    @GetMapping(value =App_Root + "/article/{codeArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
+    @GetMapping(value =App_Root + "/articles/article/{codeArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "Rechercher un article  par code",notes = "cette methode permet de rechercher un article par son code ", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "L'article a été trouvée dans la BDD "),
@@ -38,15 +38,15 @@ public interface ArticleApi {
     })
     ArticleDto findByCodeArticle(@PathVariable("codeArticle") String codeArticle);
 
-    @GetMapping(value =App_Root + "/article/all",produces =MediaType.APPLICATION_JSON_VALUE )
-    @ApiOperation(value = "Revoie la liste des articles",notes = "cette methode permet de recherche et renvoyer la liste des acticles qui exitent dans la BDD ", response = ArticleDto.class)
+    @GetMapping(value =App_Root + "/articles/all",produces =MediaType.APPLICATION_JSON_VALUE )
+    @ApiOperation(value = "Revoie la liste des articles",notes = "cette methode permet de recherche et renvoyer la liste des articles qui exitent dans la BDD ", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "La liste des articles/Une liste vide ")
 
     })
     List<ArticleDto> findAll();
 
-    @DeleteMapping(value =App_Root + "/article/delete/{idArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
+    @DeleteMapping(value =App_Root + "/articles/delete/{idArticle}",produces =MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "suprimer un article ",notes = "cette methode permet de suprimer un article  ", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200,message = "L'article a été suprimer ")

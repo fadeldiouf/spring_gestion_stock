@@ -17,13 +17,13 @@ public class ClientValidator {
             errors.add("veuiller selectionner une photo pour le client");
             return errors;
         }
-        if (StringUtils.hasLength(clientDto.getNom())){
+        if (!StringUtils.hasLength(clientDto.getNom())){
                 errors.add("veuiller renseigner le nom du client");
             }
-        if (StringUtils.hasLength(clientDto.getPrenom())){
+        if (!StringUtils.hasLength(clientDto.getPrenom())){
             errors.add("veuiller renseigner le prenom du client");
         }
-        if (StringUtils.hasLength(clientDto.getEmail())){
+        if (!StringUtils.hasLength(clientDto.getEmail())){
             errors.add("veuiller renseigner le mail du client");
         }
         if (clientDto.getAdresse()== null){
@@ -40,7 +40,7 @@ public class ClientValidator {
                 errors.add("le champ pays est obligatoire");
             }
         }
-        if (StringUtils.hasLength(clientDto.getNumTel())){
+        if (!StringUtils.hasLength(clientDto.getNumTel())){
             errors.add("veuiller renseigner le numero telephone du client");
         }
         if (clientDto.getNom()==null){

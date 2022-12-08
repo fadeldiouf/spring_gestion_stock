@@ -85,6 +85,44 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.8</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>true</springmvc>
+							<locations>
+								<location> com.fadel.gestiondestock.controller </location>
+							</locations>
+							<basePath>http://localhost:8082</basePath>
+
+							<info>
+								<title>Swager Api Documentaion for Gestion de stock Application</title>
+								<version>${project.version}</version>
+								<description> Swager Api Documentaion for Gestion de stock Application</description>
+								<contact>
+									<email>diouffadel@email.com</email>
+									<name>Fadel</name>
+								</contact>
+							</info>
+							<outputPath>${project.build.directory}</outputPath>
+							<outputFormats>JSON</outputFormats>
+							<swaggerApiReader> com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
+							<swaggerDirectory>${project.build.directory}</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

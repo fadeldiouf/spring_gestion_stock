@@ -17,10 +17,10 @@ public class ArticleValidator {
             errors.add("veuiller selectionner une categorie");
             return errors;
         }
-        if (StringUtils.hasLength(articleDto.getCodeArticle())){
+        if (!StringUtils.hasLength(articleDto.getCodeArticle())){
             errors.add("veuiller renseigner le code de L'article");
         }
-        if (StringUtils.hasLength(articleDto.getDesignation())){
+        if (!StringUtils.hasLength(articleDto.getDesignation())){
             errors.add("veuiller renseigner la designation de L'article");
         }
         if (articleDto.getPrixUnitaire()==null){
