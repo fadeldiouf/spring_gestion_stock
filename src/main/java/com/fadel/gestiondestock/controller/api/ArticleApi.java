@@ -36,7 +36,7 @@ public interface ArticleApi {
             @ApiResponse(code = 200,message = "L'article a été trouvée dans la BDD "),
             @ApiResponse(code = 404,message = "Aucun article n'existe dans la DBB avec le code fourni")
     })
-    ArticleDto findByCodeArticle(@PathVariable("codeArticle") String codeArticle);
+    ArticleDto findByCode(@PathVariable("codeArticle") String codeArticle);
 
     @GetMapping(value =App_Root + "/articles/all",produces =MediaType.APPLICATION_JSON_VALUE )
     @ApiOperation(value = "Revoie la liste des articles",notes = "cette methode permet de recherche et renvoyer la liste des articles qui exitent dans la BDD ", response = ArticleDto.class)

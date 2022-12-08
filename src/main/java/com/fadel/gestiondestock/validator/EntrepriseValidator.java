@@ -17,10 +17,10 @@ public class EntrepriseValidator {
             errors.add("veuiller selectionner une photo pour  l'entreprise");
             return errors;
         }
-        if (StringUtils.hasLength(clientDto.getNom())){
+        if (!StringUtils.hasLength(clientDto.getNom())){
             errors.add("veuiller renseigner le nom de l'entreprise");
         }
-        if (StringUtils.hasLength(clientDto.getDescription())){
+        if (!StringUtils.hasLength(clientDto.getDescription())){
             errors.add("veuiller renseigner la description de l'entreprise");
         }
         if (clientDto.getAdresse()== null){
@@ -37,7 +37,7 @@ public class EntrepriseValidator {
                 errors.add("le champ pays est obligatoire");
             }
         }
-        if (StringUtils.hasLength(clientDto.getEmail())){
+        if (!StringUtils.hasLength(clientDto.getEmail())){
             errors.add("veuiller renseigner le mail de l'entreprise");
         }
         if (clientDto.getNom()==null){

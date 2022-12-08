@@ -28,7 +28,7 @@ public class ArticleController implements ArticleApi {
     }
 
     @Override
-    public ArticleDto findByCodeArticle(String codeArticle) {
+    public ArticleDto findByCode(String codeArticle) {
         return articleService.findByCodeArticle(codeArticle);
     }
 

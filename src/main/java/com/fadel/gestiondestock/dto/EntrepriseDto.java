@@ -47,7 +47,8 @@ public class EntrepriseDto {
         entreprise.setId(entrepriseDto.getId());
         entreprise.setNom(entrepriseDto.getNom());
         entreprise.setDescription(entrepriseDto.getDescription());
-        entreprise.setEmail(entreprise.getEmail());
+        entreprise.setAdresse(entrepriseDto.getAdresse());
+        entreprise.setEmail(entrepriseDto.getEmail());
         entreprise.setPhoto(entrepriseDto.getPhoto());
         entreprise.setSiteweb(entrepriseDto.getSiteweb());
        return entreprise;
